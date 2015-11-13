@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'failed' => 'Dados não correspondem, acesso negado.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Credenciais informadas não correspondem com nossos registros.',
+    'throttle' => 'Você realizou muitas tentativas de login. Favor tentar novamente em :seconds segundos.',
 
 ];

@@ -1,9 +1,9 @@
 # Nome Completo
 
-Nacionalidade, idade, estado civil  
-Endereço:  
-E-mail:  
-Telefone(s): 
+Nacionalidade, idade, estado civil
+Endereço:
+E-mail:
+Telefone(s):
  
 ---
 Formação: (indicar aqui cursos que tenha feito e acha interessante serem destacados)
