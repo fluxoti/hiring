@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'Auth\AuthController@getLogin');
+Route::get('/dashboard', 'DashboardController@index');
+Route::get('/login', 'Auth\AuthController@getLogin');
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
+]);
