@@ -1,0 +1,10 @@
+{
+    "require": {
+        "phpspec/phpspec": "^2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Hiring\\Exer2": "src"
+        }
+    }
+}
