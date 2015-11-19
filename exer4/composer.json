@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.1.*"
+        "laravel/framework": "5.1.*",
+        "twbs/bootstrap": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -36,7 +37,9 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
-            "php artisan optimize"
+            "php artisan optimize",
+            "mkdir -p public/bootstrap",
+            "cp -R vendor/twbs/bootstrap/dist/ public/bootstrap/"
         ],
         "post-root-package-install": [
             "php -r \"copy('.env.example', '.env');\""
