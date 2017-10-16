@@ -1,7 +1,7 @@
 # FluxoTI: trabalhe conosco
 
 Olá desenvolvedor, quer trabalhar conosco? Basta dar um *fork* nesse repositório, fazer o nosso teste e abrir um PR com a sua implementação.  
-Também precisamos que envie seu curriculo para a gente, no email lucas.gois@fluxoti.com. Pode mandar tudo que achar interessante junto: linkedin, twitter, blog, site, projetos open-source que participa, artigos que tenha escrito, enfim, tudo mesmo que julgar interessante.
+Também precisamos que envie seu curriculo para a gente, no email dev@fluxoti.com. Pode mandar tudo que achar interessante junto: linkedin, twitter, blog, site, projetos open-source que participa, artigos que tenha escrito, enfim, tudo mesmo que julgar interessante.
 
 ## Requisitos
 
