@@ -31,5 +31,6 @@ O *README* do projeto deverá conter as informações sobre como instalar e exec
 - Utilizar Vuex na implementação
 - Utilizar um pré-processador CSS (usamos SASS aqui, mas não tem problema ser outro não :smile:)
 - Utilizar ES6 (amamos ES6 :heart_eyes:)
+- Utilizar Docker Compose
 
 *OBS:* Mesmo utilizando javascript para exibir os dados, é necessário que a API do github seja consumida pelo PHP.
