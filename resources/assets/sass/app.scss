@@ -1,0 +1,14 @@
+.title{
+  font-weight: bold;
+}
+
+.comment,.answer{
+  border: 1px solid #ccc;background-color: #fcf8e3;padding:0px 10px 15px 10px;
+  .by{
+    color:#7777ff;
+  }
+}
+
+.answer{
+  margin-left:5%;
+}
