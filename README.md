@@ -1,4 +1,4 @@
-Comandos para rodar a aplicação para rodar a aplicação
+Comandos para rodar a aplicação
 
 1 - composer install
 2 - npm install
