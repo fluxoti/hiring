@@ -6,6 +6,9 @@
 /.idea
 /.vscode
 /.vagrant
+/public/js
+/public/css
+/resources/assets/prevent-cache.txt
 Homestead.json
 Homestead.yaml
 npm-debug.log
