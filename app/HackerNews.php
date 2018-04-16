@@ -21,6 +21,7 @@ abstract class HackerNews
         $result = [];
         for ($i = $offset; $i < $offset + $limit && isset($newsIds[$i]); $i++)
             $result['items'][] = self::getItem($newsIds[$i]);
+        $result['count'] = count($newsIds);
         return $result;
     }
 
