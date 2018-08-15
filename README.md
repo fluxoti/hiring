@@ -28,4 +28,4 @@ O *README* do projeto deverá conter as informações sobre como instalar e exec
 - Utilizar ES6 (amamos ES6 :heart_eyes:)
 - Utilizar Docker / Docker Compose
 
-*OBS:* Mesmo utilizando javascript para exibir os dados, é necessário que a API do github seja consumida pelo PHP. Num projeto real, isso não seria necessário, mas precisamos ver algum código backend :wink:
+*OBS:* Mesmo utilizando javascript para exibir os dados, é necessário que a API do hackernews seja consumida pelo PHP. Num projeto real, isso não seria necessário, mas precisamos ver algum código backend :wink:
