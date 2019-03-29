@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  box:
+    build:
+      context: ./.docker/box
+    container_name: hn-box
+    working_dir: /usr/src/myapp
+    volumes:
+      - .:/usr/src/myapp
+    ports:
+      # Laravel API
+      - 8000:8000
+      # Vue Client
+      - 3000:3000
+      # Vue Cli UI
+      - 3001:3001
+    environment:
+      - NODE_ENV=development
+    tty: true
+    stdin_open: true
