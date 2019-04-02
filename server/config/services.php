@@ -14,6 +14,10 @@ return [
     |
     */
 
+    'hacker_news' => [
+        'base_uri' => 'https://hacker-news.firebaseio.com/v0/',
+    ],
+
     'mailgun' => [
         'domain' => env('MAILGUN_DOMAIN'),
         'secret' => env('MAILGUN_SECRET'),

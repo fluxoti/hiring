@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use GuzzleHttp\Client;
+use App\API\HackerNewsAPI;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(HackerNewsAPI::class, function () {
+            $client = new Client(config('services.hacker_news'));
+
+            return new HackerNewsAPI($client);
+        });
     }
 
     /**
