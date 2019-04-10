@@ -11,7 +11,13 @@
 |
 */
 
+$router->get('/', function () {
+    echo 'v1';
+});
+
 $router->group(['prefix' => 'v1', 'namespace' => 'V1'], function () use ($router) {
+    $router->get('items/{type}', 'ItemsController@index')
+        ->where('type', 'top|new|best|ask|show|job');
     $router->get('items/{id}', 'ItemsController@show');
     $router->get('items/last', 'ItemsController@lastId');
 

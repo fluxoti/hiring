@@ -5,6 +5,15 @@ namespace App\Providers;
 use GuzzleHttp\Client;
 use App\API\HackerNewsAPI;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Http\Resources\Json\Resource;
+use App\Repositories\HackerNews\{
+    ItemRepository,
+    UserRepository,
+    CachedItemRepository,
+    CachedUserRepository,
+    ItemRepositoryInterface,
+    UserRepositoryInterface
+};
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +29,20 @@ class AppServiceProvider extends ServiceProvider
 
             return new HackerNewsAPI($client);
         });
+
+        $this->app->singleton(ItemRepositoryInterface::class, function ($app) {
+            return new CachedItemRepository(
+                $app->make('cache.store'),
+                new ItemRepository($app->make(HackerNewsAPI::class))
+            );
+        });
+
+        $this->app->singleton(UserRepositoryInterface::class, function ($app) {
+            return new CachedUserRepository(
+                $app->make('cache.store'),
+                new UserRepository($app->make(HackerNewsAPI::class))
+            );
+        });
     }
 
     /**
@@ -29,6 +52,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Resource::withoutWrapping();
     }
 }
