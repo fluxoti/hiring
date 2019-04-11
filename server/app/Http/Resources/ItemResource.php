@@ -44,10 +44,10 @@ class ItemResource extends Resource
                 $this->isA('comment'),
                 $this->getAttribute('parent')
             ),
-            'author' => $this->by,
+            'author' => $this->getAttribute('by'),
             'isDead' => $this->getAttribute('dead') ?? false,
             'isDeleted' => $this->getAttribute('deleted') ?? false,
-            'createdAt' => $this->time,
+            'createdAt' => $this->getAttribute('time'),
         ];
     }
 
