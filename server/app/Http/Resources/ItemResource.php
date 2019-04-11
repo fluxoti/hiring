@@ -47,8 +47,19 @@ class ItemResource extends Resource
             'author' => $this->getAttribute('by'),
             'isDead' => $this->getAttribute('dead') ?? false,
             'isDeleted' => $this->getAttribute('deleted') ?? false,
-            'createdAt' => $this->getAttribute('time'),
+            'createdAt' => $this->formatTime(),
         ];
+    }
+
+    private function formatTime()
+    {
+        $time = $this->getAttribute('time');
+
+        if (!$time) {
+            return;
+        }
+
+        return now()->createFromTimestamp($time)->format('Y-m-d H:i:s');
     }
 
     private function isStory()

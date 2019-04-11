@@ -1,0 +1,35 @@
+@import "variables";
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+::before,
+::after {
+  text-decoration: inherit;
+  vertical-align: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  color: $link-color;
+  text-decoration: none;
+}
