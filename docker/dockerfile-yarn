@@ -1,0 +1,8 @@
+FROM node:10.15.3-slim
+
+LABEL maintainer="Jefferson Ramos"
+
+WORKDIR /var/www
+
+RUN npm install -g npm@latest \
+    && npm install -g yarn
