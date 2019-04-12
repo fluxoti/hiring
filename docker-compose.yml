@@ -1,0 +1,66 @@
+version: '3.3'
+
+services:
+  app:
+    build:
+      context: ./docker
+      dockerfile: dockerfile-php
+    container_name: app
+    restart: unless-stopped
+    working_dir: /var/www
+    volumes:
+      - ./:/home/app
+    depends_on:
+      - db
+    networks:
+      - app-network
+
+  node:
+    build:
+      context: ./docker
+      dockerfile: dockerfile-yarn
+    container_name: node
+    working_dir: /var/www
+    depends_on:
+      - app
+    user: node
+    volumes:
+      - ./:/home/app
+
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
+  db:
+    image: postgres:latest
+    container_name: db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: deployer
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: my_db
+    volumes:
+      - hiring-db:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  hiring-db:
+    driver: local
