@@ -15,10 +15,21 @@
 
       <div class="w-100"></div>
 
+      <div class="search-bar__options">
+        <div class="checkbox">
+          <div class="checkbox__input">
+            <input v-model="showEmptyItems" type="checkbox" />
+          </div>
+          <label class="checkbox__label">Show empty items</label>
+        </div>
+      </div>
+
+      <div class="w-100"></div>
+
       <v-btn class="search-bar__button" @click="loadUserItems">Search</v-btn>
     </div>
 
-    <v-item-list :items="items" />
+    <v-item-list :items="filteredItems()" />
 
     <div class="bg-body text-center py-2">
       <v-btn
@@ -45,6 +56,7 @@ export default {
       username: "",
       loading: false,
       showNotFoundError: false,
+      showEmptyItems: true,
       items: this.$store.getters.activeUserItems,
       currentBatch: this.$store.state.currentBatch
     };
@@ -70,6 +82,16 @@ export default {
     }
   },
   methods: {
+    filteredItems() {
+      return this.items.filter(item => {
+        if (this.showEmptyItems) {
+          return true;
+        }
+
+        return item.title || item.body || item.url;
+      });
+    },
+
     loadMoreItems() {
       this.$store.commit("incrementCurrentPage");
       this.loadUserItems();
@@ -136,9 +158,34 @@ export default {
     width: 50%;
   }
 
+  &__options {
+    margin: 1rem 0;
+  }
+
   &__button {
-    margin-top: 1rem;
     cursor: pointer;
+  }
+}
+
+.checkbox {
+  display: flex;
+  width: 100%;
+
+  &__input {
+    position: relative;
+    margin-right: 5px;
+    height: 16px;
+    width: 16px;
+
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__label {
+    line-height: 20px;
   }
 }
 </style>
